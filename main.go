@@ -105,6 +105,12 @@ func readULong(input ...string) ulong {
 	}, input...)
 }
 
+func readBinary(input ...string) long {
+	return read(func(s string) (int64, error) {
+		return strconv.ParseInt(s, 2, 64)
+	}, input...)
+}
+
 func readBools() []bool {
 	return readMany(readBool)
 }
@@ -137,4 +143,5 @@ func main() {
 	defer out.Flush()
 
 	// solution
+	
 }
